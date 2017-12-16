@@ -1,9 +1,10 @@
 package com.example.sample;
 
-public class Dog {
+public class Dog implements Animal {
 
     private int age = 0;
     public String name = "No Name";
+    protected String height = "Unknown";
 
     public Dog(){
         System.out.println("Hi from the constructor!");
@@ -38,5 +39,26 @@ public class Dog {
 
         System.out.println("Your age is now: " + this.age);
         return this.age;
+    }
+
+
+    public boolean equals(Object obj) {
+        Dog comparedDog = (Dog)obj;
+        System.out.println("Orgiginal Name: " + this.name);
+        System.out.println("Compared Name: " + comparedDog.name);
+        return this.name.equalsIgnoreCase(comparedDog.name);
+    }
+
+    public int getNumberOfLegs(){
+        return 0;
+    }
+    public int setNumberOfLegs(){
+        return 0;
+    }
+
+    public void thisThrowsErrors() throws Exception {
+        System.out.println("I'm going to throw an error!");
+        throw new Exception("Crazy Error!!!");
+        //System.out.println("This code never reached");
     }
 }
